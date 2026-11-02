@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class NotificationController extends Controller
+{
+    public function index(Request $request)
+    {
+        return view('notifications.index', [
+            'notifications' => $request->user()->notifications()->paginate(15),
+        ]);
+    }
+
+    /** Mark one notification as read and jump to its link. */
+    public function open(Request $request, string $id)
+    {
+        $notification = $request->user()->notifications()->findOrFail($id);
+        $notification->markAsRead();
+
+        return redirect($notification->data['url'] ?? route('dashboard'));
+    }
+
+    public function readAll(Request $request)
+    {
+        $request->user()->unreadNotifications->markAsRead();
+
+        return back()->with('success', 'All notifications marked as read.');
+    }
+}
