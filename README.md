@@ -32,15 +32,17 @@ php artisan serve
 
 Then open **http://127.0.0.1:8000**. On macOS/Linux use `cp` instead of `copy`.
 
-### Demo accounts (password for all: `password`)
-These exist only after seeding, for local demos.
-
+### Demo accounts (password: `password`)
 | Role | Email |
 |---|---|
-| Admin | admin@jobboard.test |
 | Employer | employer@jobboard.test |
 | Employer 2 | employer2@jobboard.test |
 | Job seeker | seeker@jobboard.test |
+
+The admin account's password is set with the `ADMIN_PASSWORD` environment variable, and is not published.
+
+## Live demo
+The repo includes a `Dockerfile` and `render.yaml` for deploying to Render. The live demo rebuilds its demo data on every restart, so anything added there is temporary. Don't enter real personal details or upload a real resume.
 
 ### Job-alert emails
 `MAIL_MAILER=log` (Laravel default) writes emails to `storage/logs/laravel.log`. For real emails, set SMTP details in `.env`.

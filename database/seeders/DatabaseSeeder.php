@@ -8,14 +8,15 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Demo data. All demo accounts use the password: password
+     * Demo data. Demo accounts use the password: password
+     * The admin password comes from ADMIN_PASSWORD on the live site.
      */
     public function run(): void
     {
         User::create([
             'name' => 'Site Admin',
             'email' => 'admin@jobboard.test',
-            'password' => 'password',
+            'password' => env('ADMIN_PASSWORD', 'password'),
             'role' => 'admin',
         ]);
 

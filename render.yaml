@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: jobboard
+    runtime: docker
+    plan: free
+    healthCheckPath: /up
+    envVars:
+      - key: APP_NAME
+        value: JobBoard
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: PHP_CLI_SERVER_WORKERS
+        value: "4"
+      # Render creates this secret; find it under the service's Environment tab
+      - key: ADMIN_PASSWORD
+        generateValue: true
