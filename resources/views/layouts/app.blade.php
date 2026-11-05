@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', 'Find your next job') · JobBoard</title>
+    <link rel="icon" type="image/png" href="{{ asset('logo-icon.png') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <style>
@@ -14,7 +15,6 @@
         .company-logo { width: 48px; height: 48px; border-radius: 12px; display: grid; place-items: center;
                         font-weight: 700; background: #e7f0ff; color: #0d6efd; flex-shrink: 0; }
         .stat-card .icon { width: 48px; height: 48px; border-radius: 12px; display: grid; place-items: center; font-size: 1.4rem; }
-        .navbar-brand i { color: #6ea8fe; }
         .min-w-0 { min-width: 0; }
     </style>
 </head>
@@ -22,7 +22,10 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="{{ route('home') }}"><i class="bi bi-briefcase-fill"></i> JobBoard</a>
+        <a class="navbar-brand py-0" href="{{ route('home') }}">
+            {{-- White background keeps the navy logo readable on the dark navbar --}}
+            <img src="{{ asset('logo.png') }}" alt="JobBoard home" width="92" height="44" class="bg-white rounded-2 d-block">
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -95,6 +98,8 @@
         <span>Second-year Web Development Project</span>
     </div>
 </footer>
+
+@include('partials.chatbot')
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
