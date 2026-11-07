@@ -4,20 +4,20 @@
 <section class="hero py-5">
     <div class="container py-lg-4">
         <div class="row align-items-center">
-            <div class="col-lg-8">
+            <div class="col-xl-10">
                 <h1 class="display-5 fw-bold">Find the job that fits your life</h1>
                 <p class="lead opacity-75 mb-4">{{ $stats['jobs'] }} open positions from {{ $stats['companies'] }} companies. Search, apply with your resume, and get alerts for new jobs.</p>
 
                 <form action="{{ route('jobs.index') }}" class="bg-white rounded-3 p-2 shadow">
                     <div class="row g-2">
-                        <div class="col-md-5">
+                        <div class="col-sm-6 col-xl-5">
                             <input type="text" name="q" class="form-control form-control-lg border-0" placeholder="Job title, skill or company">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-sm-6 col-xl-4">
                             <input type="text" name="location" class="form-control form-control-lg border-0" placeholder="City or Remote">
                         </div>
-                        <div class="col-md-3 d-grid">
-                            <button class="btn btn-primary btn-lg"><i class="bi bi-search"></i> Search</button>
+                        <div class="col-12 col-xl-3 d-grid">
+                            <button class="btn btn-primary btn-lg text-nowrap"><i class="bi bi-search"></i> Search</button>
                         </div>
                     </div>
                 </form>
@@ -35,7 +35,7 @@
 
 <div class="row g-3 mb-5">
     @forelse($latestJobs as $job)
-        <div class="col-md-6 col-lg-4">@include('jobs._card')</div>
+        <div class="col-md-6 col-xl-4">@include('jobs._card')</div>
     @empty
         <p class="text-muted">No jobs posted yet.</p>
     @endforelse
