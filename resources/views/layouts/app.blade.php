@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', 'Find your next job') · JobBoard</title>
-    <link rel="icon" type="image/png" href="{{ asset('logo-icon.png') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('logo.svg') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <style>
@@ -22,9 +22,8 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
     <div class="container">
-        <a class="navbar-brand py-0" href="{{ route('home') }}">
-            {{-- White background keeps the navy logo readable on the dark navbar --}}
-            <img src="{{ asset('logo.png') }}" alt="JobBoard home" width="92" height="44" class="bg-white rounded-2 d-block">
+        <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="{{ route('home') }}">
+            <img src="{{ asset('logo.svg') }}" alt="" width="36" height="36" class="border border-secondary rounded-3"> JobBoard
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
             <span class="navbar-toggler-icon"></span>
